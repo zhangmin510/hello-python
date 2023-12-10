@@ -4,7 +4,9 @@
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 import os
-import openai
+from openai import OpenAI
+
+client = OpenAI()
 
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
@@ -18,7 +20,7 @@ if __name__ == '__main__':
     # Load your API key from an environment variable or secret management service
     api_key = os.getenv("OPENAI_API_KEY")
 
-    response = openai.Completion.create(model="text-davinci-003", prompt="中国", temperature=0,
+    response = client.completions.create(model="text-davinci-003", prompt="中国", temperature=0,
                                         max_tokens=1024)
 
     result = ''
